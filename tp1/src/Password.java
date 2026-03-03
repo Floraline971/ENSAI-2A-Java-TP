@@ -67,9 +67,21 @@ public class Password {
      */
     public static boolean isStrongPassword(String password) {
 
-        // Code here
+        boolean isLongEnougth = password.length() >=12;
+        boolean containLower = false;
+        boolean containUpper = false;
+        boolean containDigit = false;
+        boolean containSpace = false;
 
-        return false;
+        for (int i = 0; i< password.length(); i++) {
+            char c = password.CharAt(i);
+            if (character.isUpperCase(c))
+                containUpper = true;
+            if (character.isLowerCase(c))
+                containLower = true;
+        }
+
+        return isLongEnougth && containLower && containUpper && containDigit && !containSpace;
     }
 
     /**
@@ -82,7 +94,7 @@ public class Password {
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
-        // Code here
+        
 
         return null;
     }
