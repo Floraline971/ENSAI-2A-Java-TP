@@ -40,6 +40,7 @@ public class Password {
      */
     public static String bruteForce6Digit(String targetHash) {
 
+<<<<<<< HEAD
         for (int i = 0; i < 999999; i++) {
             String istr = String.format("%06d", i);
             if (hashPassword(istr) == targetHash){
@@ -47,6 +48,9 @@ public class Password {
             }
         }
 }
+=======
+        // Code here
+>>>>>>> dd8a231b0c3fe8d317f6cb28620f2bd9867f27de
 
         return null;
     }
@@ -67,6 +71,7 @@ public class Password {
      */
     public static boolean isStrongPassword(String password) {
 
+<<<<<<< HEAD
         boolean isLongEnougth = password.length() >=12;
         boolean containLower = false;
         boolean containUpper = false;
@@ -82,6 +87,11 @@ public class Password {
         }
 
         return isLongEnougth && containLower && containUpper && containDigit && !containSpace;
+=======
+        // Code here
+
+        return false;
+>>>>>>> dd8a231b0c3fe8d317f6cb28620f2bd9867f27de
     }
 
     /**
@@ -94,7 +104,11 @@ public class Password {
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
+<<<<<<< HEAD
         
+=======
+        // Code here
+>>>>>>> dd8a231b0c3fe8d317f6cb28620f2bd9867f27de
 
         return null;
     }
