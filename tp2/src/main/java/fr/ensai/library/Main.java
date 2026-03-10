@@ -4,6 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Library lib = new Library("agora");
+        lib.loadBooksFromCSV("books.csv");
+
+        Magazine m1 = new Magazine()
+        Magazine m2 = new Magazine()
+
         Author tolkien = new Author("J.R.R. Tolkien", 81, "UK");
 
         Book fellowshipOfTheRing = new Book(
@@ -13,10 +19,6 @@ public class Main {
                 1954,
                 423);
 
-<<<<<<< HEAD
-        System.out.println(fellowshipOfTheRing.toString());
-=======
         System.out.println(fellowshipOfTheRing);
->>>>>>> dd8a231b0c3fe8d317f6cb28620f2bd9867f27de
     }
 }
