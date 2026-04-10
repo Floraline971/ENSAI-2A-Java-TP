@@ -122,11 +122,11 @@ public class Elevator {
     }
 
         /**
-     * Function that takes the number of passengers in the elevator and returns true if it is full capacity
+     * Function that returns true if the elevator is full capacity
      */
 
-    public static boolean isFull(int passengers) {
-        return passengers == capacity;
+    public boolean isFull() {
+         return this.passengers.size() >= this.capacity;
         }
     
     /**
@@ -137,18 +137,19 @@ public class Elevator {
      */
     public void loadPassengers(Floor floor) {
 
-        while (this.passengers.size() < this.capacity) {
+        while (!isFull()) {
             Person person = floor.boardNextPerson();
             if (person == null)
                 break;
-            /*waiting if the elevator is full */
-            Floor.waitingPeople = waitingPeople
-            else if (Elevator.isFull())
-                waitingPeople.add(person);  
+
+            logger.info("Floor {}: {}{} enter Elevator {}",
+                    floor.getNumber(),
+                    person.getNickname(),
+                    person.getTargetFloor(),
+                    this.id);
             this.passengers.add(person);
             this.addDestination(person.getTargetFloor());
         }
-        /*  */
     }
 
     /**
