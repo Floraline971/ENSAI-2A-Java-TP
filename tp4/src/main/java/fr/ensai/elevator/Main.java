@@ -22,19 +22,17 @@ public class Main {
         final int nbSteps = Config.getInt("steps.count");
         final int msBetweenSteps = Config.getInt("steps.delay");
 
-        List<Floor> floors = new ArrayList<>();
-        floors.add(new Floor(0));
-        floors.add(new Floor(1));
-        floors.add(new Floor(2));
-        floors.add(new Floor(3));
 
-        for (int i = 1; i <= elevatorNumber; i++) {
+        List<Floor> floors = new ArrayList<>();
+        for (int i = 0; i < floorNumber; i++) {
         floors.add(new Floor(i));
         }  
 
         List<Elevator> elevators = new ArrayList<>();
-        elevators.add(new Elevator(1, 0, elevatorCapacity));
-        elevators.add(new Elevator(2, 0, elevatorCapacity));
+        for (int i = 1; i <= elevatorNumber; i++) {
+        elevators.add(new Elevator(i, 0, elevatorCapacity));
+        }  
+
 
         Hotel hotel = new Hotel(floors, elevators);
 
@@ -52,14 +50,6 @@ public class Main {
         }
         
 
-        for (int step = 1; step <= nbSteps; step++) {
-            logger.info("\nStep: {}\n--------", step);
-
-            hotel.update();
-            hotel.spawnPerson();
-            hotel.display(step);
-            Thread.sleep(msBetweenSteps);
-        }
         {
             init: function(elevators, floors) {
                 var elevator = elevators[0]; // Let's use the first elevator

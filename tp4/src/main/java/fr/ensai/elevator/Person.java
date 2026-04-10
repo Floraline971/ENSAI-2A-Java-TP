@@ -43,8 +43,9 @@ public class Person {
      * 
      * @return the target floor number
      */
+    final int floorNumber = Config.getInt("hotel.floor.number");
     private static int generateTargetFloor() {
-        return random.nextInt(4);
+        return random.nextInt(floorNumber);
     }
 
     public String getNickname() {

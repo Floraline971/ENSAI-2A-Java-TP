@@ -121,6 +121,16 @@ public class Elevator {
         return this.lastUnloaded.size();
     }
 
+        /**
+     * Function that takes the number of passengers in the elevator and returns true if it is full capacity
+     */
+    final int elevatorCapacity = Config.getInt("hotel.elevator.capacity");
+    
+    public static boolean isFull(int passengers) {
+        return passengers == capacity;
+        }
+    }
+
     /**
      * Loads passengers waiting on the specified floor until the elevator is full.
      * Adds their target floors to the destination queue.
@@ -133,7 +143,8 @@ public class Elevator {
             Person person = floor.boardNextPerson();
             if (person == null)
                 break;
-
+            /*waiting if the elevator is full */
+            else if ()
             logger.info("Floor {}: {}{} enter Elevator {}",
                     floor.getNumber(),
                     person.getNickname(),
@@ -152,6 +163,7 @@ public class Elevator {
         if (!destinationQueue.isEmpty())
             this.currentFloor = destinationQueue.removeFirst();
     }
+
 
     /**
      * Returns a string representation of the elevator at a specific floor,
