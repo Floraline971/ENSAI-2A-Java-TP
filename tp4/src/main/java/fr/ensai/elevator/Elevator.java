@@ -20,7 +20,7 @@ public class Elevator {
     private static final Logger logger = LogManager.getLogger(Elevator.class);
 
     private int id;
-    private int capacity;
+    private static int capacity;
     private int currentFloor;
     private List<Integer> destinationQueue;
     private List<Person> passengers;
@@ -124,13 +124,11 @@ public class Elevator {
         /**
      * Function that takes the number of passengers in the elevator and returns true if it is full capacity
      */
-    final int elevatorCapacity = Config.getInt("hotel.elevator.capacity");
-    
+
     public static boolean isFull(int passengers) {
         return passengers == capacity;
         }
-    }
-
+    
     /**
      * Loads passengers waiting on the specified floor until the elevator is full.
      * Adds their target floors to the destination queue.
@@ -144,15 +142,13 @@ public class Elevator {
             if (person == null)
                 break;
             /*waiting if the elevator is full */
-            else if ()
-            logger.info("Floor {}: {}{} enter Elevator {}",
-                    floor.getNumber(),
-                    person.getNickname(),
-                    person.getTargetFloor(),
-                    this.id);
+            Floor.waitingPeople = waitingPeople
+            else if (Elevator.isFull())
+                waitingPeople.add(person);  
             this.passengers.add(person);
             this.addDestination(person.getTargetFloor());
         }
+        /*  */
     }
 
     /**

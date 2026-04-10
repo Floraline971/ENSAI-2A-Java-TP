@@ -27,6 +27,8 @@ public class Hotel {
      * <li>Unloads passengers at their destination floor</li>
      * <li>Loads waiting passengers if capacity allows</li>
      */
+
+    
     public void update() {
         for (Elevator e : this.elevators) {
             e.move();
